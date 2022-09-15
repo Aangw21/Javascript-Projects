@@ -7,19 +7,22 @@ const counterBtn = document.getElementsByTagName("button");
 
 
 counterBtn[0].addEventListener("click",()=>{
-count++;
+guesses++;
 updateText();
 });
 
 function updateText(){
-    const grabFeedback1 = document.getElementById("feedback2");
-    grabFeedback1.textContent = guesses;
+    const grabFeedback3 = document.getElementById("feedback3");
+    grabFeedback3.textContent = "Number of guesses: " + guesses;
 }
 
+// function updateText(){
 
-// let guesses = 0
+// }
 
-// let counterButton= document.getElementById("input_guess");
+let guesses = 0
+
+let counterButton= document.getElementById("input_guess");
 
 // counterButton[0].addEventListener("click",()=>{
 // count++;
