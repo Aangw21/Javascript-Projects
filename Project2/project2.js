@@ -1,48 +1,51 @@
 function resetBtn(){
-    console.log("Button works!");
-    let randomNumber = randBool();
-    console.log(randomNumber);
+    numGuesses = 0;
+    randomNumber = randBool();
+    // console.log(randomNumber);
     Allth = document.getElementsByTagName("th");
-    console.log(Allth);
+    // console.log(Allth);
     for (let i = 0; i < Allth.length ; i++){
         Allth[i].style.backgroundColor = "white";
     }
    
 }
 
-// function counterBtn() {
-// const counterBtn = document.getElementsByTagName("th");
-// for (let i = 0; i < Allth.length ; i++){
-//     counterBtn[i].addEventListener("click",()=>{
-//         guesses++;}
-//     )
-// }
+
+
+let numGuesses = 0;
 
 function counterBtn() {
-    let guesses = 0
-    const counterBtn = document.getElementsByTagName("th");
-    for (let i = 0; i < counterBtn.length ; i++){
-        counterBtn[i].addEventListener("click", ()=>{
-            guesses++;
-            // return guesses;
-        }
 
-        )
-    
-    }
-    // return "Hello";
-    return guesses;
+    numGuesses++;
+
+    return numGuesses;
 }
 
+// function counterBtn() {
+//     if (!resetBtn()) {
+//         numGuesses++;
+//     }
+//     else {
+//         numGuesses = 0
+//         numGuesses++;
+//     }
+    
+//         return numGuesses;
+//     }
+
+// returns a random numner when called
 function randBool() {
     return Math.floor(Math.random()*100 + 1);
 }
 
-
+// event listener 
+// the row turns blue when you hover over it
 function mousehover(event) {
     event.target.style.backgroundColor = "blue";
 }
 
+// connects 
+// the row turns back to default when you leave
 function mouseexit(event) {
     event.target.style.backgroundColor = "white";
 }
@@ -67,13 +70,14 @@ function addGuessRow(){
                 console.log('success', randomNumber);
                 newh.style.backgroundColor = "yellow"
                 let newMsg = document.getElementById('msg');
-                alert(`You got the correct number ${randomNumber} in ${counterBtn()}`);
+                alert(`You got the correct number ${randomNumber} in ${counterBtn()} tries!`);
                 newMsg.innerHTML = `Correct the number is ${randomNumber}`
                 
-                // newh.removeEventListener('mouseover', mousehover)
+                
             }
             else if(guess < randomNumber){
                 console.log('too low', randomNumber);
+                counterBtn();
                 newh.style.backgroundColor = "red"
                 let newMsg = document.getElementById('msg');
                 newMsg.innerHTML = "Too Low Stephen"
@@ -83,7 +87,7 @@ function addGuessRow(){
 
                 }, 1000);
 
-                // newh.removeEventListener('mouseover', mousehover)
+                
                 
             }
             else {
