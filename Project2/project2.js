@@ -11,22 +11,7 @@ function resetBtn(){
     newMsg.innerHTML = "Make a guess";
 }
 
-// function disableBtn(){
-//     btn = document.getElementsByTagName("th");
-//     for (let i = 0; i < btn.length ; i++){
-//     btn.removeEventListner("click", counterBtn);
-//     }
-    
 
-// }
-
-// need to acess all the th elements
-// 
-
-// cont colorDicionary {
-//     Red: "red",
-//     Blue
-// }
 
 let numGuesses = 0;
 
@@ -43,25 +28,6 @@ function randBool() {
     return Math.floor(Math.random()*100 + 1);
 }
 
-function turnYellow(event) {
-    return event.target.style.backgroundColor = "yellow"
-}
-
-// event listener allowss access to newH from function addGuessRow and deletes repetition
-// the row turns blue when you hover over it
-function mouseEnterBlue(event) {
-    event.target.style.backgroundColor = "blue";
-}
-
-// event listener allowss access to newH from function addGuessRow and deletes repetition
-// the row turns back to default when you leave
-function mouseExitWhite(event) {
-    event.target.style.backgroundColor = "white";
-}
-
-function mouseclickRed(event) {
-    event.target.style.backgroundColor = "red";
-}
 
 // currently it grabs a rand
 function addGuessRow(){
@@ -84,13 +50,15 @@ function addGuessRow(){
             let guess = Number(newh.innerHTML);
             // grabs the number from the th and converts it to an INT
             if (guess == randomNumber){
-
                 console.log('success', randomNumber);
-                newh.style.backgroundColor = "yellow"
+                setTimeout( () => {
+                    newh.style.backgroundColor = "yellow"
+                }, 1000);
                 let newMsg = document.getElementById('msg');
                 alert(`You got the correct number ${randomNumber} in ${counterBtn()} tries!`);
                 newMsg.innerHTML = `Correct the number is ${randomNumber}`
-                    
+                
+                
             }
             else if(guess < randomNumber){
                 console.log('too low', randomNumber);
@@ -123,9 +91,9 @@ function addGuessRow(){
             }
         )
 
-        newh.addEventListener('mouseover', mouseEnterBlue)
+        newh.addEventListener('mouseover', mousehover)
 
-        newh.addEventListener('mouseleave', mouseExitWhite)
+        newh.addEventListener('mouseleave', mouseexit)
 
             
 
@@ -139,7 +107,21 @@ function addGuessRow(){
 
     }
 }
+// event listener allowss access to newH from function addGuessRow and deletes repetition
+// the row turns blue when you hover over it
+function mousehover(event) {
+    event.target.style.backgroundColor = "blue";
+}
 
+// event listener allowss access to newH from function addGuessRow and deletes repetition
+// the row turns back to default when you leave
+function mouseexit(event) {
+    event.target.style.backgroundColor = "white";
+}
+
+function mouseclickRed(event) {
+    event.target.style.backgroundColor = "red";
+}
 
 // setTimeout( () => {
 //     newMsg.innerHTML = "Make a guess!"
