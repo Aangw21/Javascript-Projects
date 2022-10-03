@@ -52,7 +52,7 @@ function addGuessRow(){
             if (guess == randomNumber){
                 console.log('success', randomNumber);
                 setTimeout( () => {
-                    newh.style.backgroundColor = "yellow"
+                    newh.style.backgroundColor = "red"
                 }, 1000);
                 let newMsg = document.getElementById('msg');
                 alert(`You got the correct number ${randomNumber} in ${counterBtn()} tries!`);
@@ -66,7 +66,7 @@ function addGuessRow(){
                 // setTimeout( () => {
                 // newh.style.backgroundColor = "red"   
                 // }, 90000);
-                newh.style.backgroundColor = "red"
+                newh.style.backgroundColor = "yellow"
                 let newMsg = document.getElementById('msg');
                 newMsg.innerHTML = "Too Low Stephen"
                 setTimeout( () => {
