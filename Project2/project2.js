@@ -11,7 +11,22 @@ function resetBtn(){
     newMsg.innerHTML = "Make a guess";
 }
 
+// function disableBtn(){
+//     btn = document.getElementsByTagName("th");
+//     for (let i = 0; i < btn.length ; i++){
+//     btn.removeEventListner("click", counterBtn);
+//     }
+    
 
+// }
+
+// need to acess all the th elements
+// 
+
+// cont colorDicionary {
+//     Red: "red",
+//     Blue
+// }
 
 let numGuesses = 0;
 
@@ -75,9 +90,7 @@ function addGuessRow(){
                 let newMsg = document.getElementById('msg');
                 alert(`You got the correct number ${randomNumber} in ${counterBtn()} tries!`);
                 newMsg.innerHTML = `Correct the number is ${randomNumber}`
-
-                
-                
+                    
             }
             else if(guess < randomNumber){
                 console.log('too low', randomNumber);
