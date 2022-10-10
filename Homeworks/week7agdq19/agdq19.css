@@ -1,0 +1,47 @@
+h1 {
+    font-size: 36px;
+    color: #00aeef;
+    font-stretch: narrower;
+    font-weight: bold;
+    font-family: Helvetica;
+    text-transform: uppercase;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+h2 {
+    font-size: 20px;
+    color:gray;
+    font-family: Helvetica;
+    text-transform: uppercase;
+}
+
+tr {
+    line-height: 24px
+}
+
+tr.evenRow{
+    background-color: rgb(242, 242, 242);
+}
+
+th {
+    text-align: left;
+    font-family: Helvetica;
+}
+
+td {
+    font-size: 14px;
+    color: rgb(107, 107, 107);
+    font-family: Helvetica;
+    vertical-align: top;
+    padding-right: 10px;
+}
+
+td.gameName {
+    font-size: 14px;
+    color: #00aeef;
+    font-family: Helvetica;
+}
+
