@@ -93,7 +93,7 @@ function sumChallenges(challenges){
 // for floating point formatting, use .toFixed(2) to truncate the decimals to 2 places
 // returns a string
 // choicetotal is sumchoices above
-function getSubHeading(choiceTotal, challengeTotal, total){
+function getSubHeading(choiceTotal, challengeTotal){
     dec2 = (choiceTotal).toFixed(2);
     return "TOTAL $1769531.45 - " + "CHOICE TOTAL: $" + String(dec2) + " - CHALLENGE TOTAL: $" + String(challengeTotal);
 }
