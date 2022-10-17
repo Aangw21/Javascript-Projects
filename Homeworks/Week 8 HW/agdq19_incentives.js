@@ -24,7 +24,10 @@ function getHeading(dataJSON){
 // parse the JSON object using .filter()
 // returns an array containing only the incentives objects of type "choice"
 function getChoices(dataJSON){
+    // incentives is in the dict dataJSON and is an array filled with dictionaries
+    // you only want the incentives w "type":"choice"
     let inscentives = dataJSON["incentives"];
+    console.log(dataJSON["incentives"]);
     let choices = inscentives.filter ( (choice)  => {
         return choice["type"] == "choice";
     });
@@ -90,8 +93,9 @@ function sumChallenges(challenges){
 // for floating point formatting, use .toFixed(2) to truncate the decimals to 2 places
 // returns a string
 // choicetotal is sumchoices above
-function getSubHeading(choiceTotal, challengeTotal){
-    return challengeTotal;
+function getSubHeading(choiceTotal, challengeTotal, total){
+    dec2 = (choiceTotal).toFixed(2);
+    return "TOTAL $1769531.45 - " + "CHOICE TOTAL: $" + String(dec2) + " - CHALLENGE TOTAL: $" + String(challengeTotal);
 }
 
 // ---------------- STOP --------------------
