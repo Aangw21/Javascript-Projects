@@ -1,0 +1,62 @@
+h1 {
+    font-size: 36px;
+    color: #00aeef;
+    font-stretch: narrower;
+    font-weight: bold;
+    font-family: Helvetica;
+    text-transform: uppercase;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+h2 {
+    font-size: 20px;
+    color:gray;
+    font-family: Helvetica;
+    text-transform: uppercase;
+}
+
+tr {
+    line-height: 24px
+}
+
+tr:nth-child(even){
+    background-color: rgb(242, 242, 242);
+}
+
+th {
+    text-align: left;
+    font-family: Helvetica;
+}
+
+td {
+    font-size: 14px;
+    color: rgb(107, 107, 107);
+    font-family: Helvetica;
+    vertical-align: top;
+    padding-right: 10px;
+
+    width: 30em;
+}
+
+td:nth-child(1){
+    color: #00aeef;
+}
+
+td:nth-child(3){
+    color: #00aeef;
+}
+
+td:nth-child(4) {
+    width: 400px;
+}
+
+td.anonymous{
+    color:rgb(107, 107, 107)
+}
+
+input.amountInput{
+    width:75px;
+}
