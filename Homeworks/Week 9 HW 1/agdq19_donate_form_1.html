@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="agdq19_donate_form_1.css">
+    <title>AGDQ 19 Donation Page</title>
+</head>
+<body>
+<center>
+    <h1>Donation Form - Awesome Games Done Quick 2019</h1>
+    <h2>Make a donation!</h2>
+
+    <form id="donateForm">
+    <div class="div-input">
+        <label class="label-input" for="nameInput">Name:</label> <br> <br>
+        <input type="text" class="input-long" id="nameInput" name="name" placeholder="Enter your name" required>
+    </div>
+    <br> <br>
+
+    <div class="div-input">
+        <label class="label-input" for="emailInput">Email:</label> <br> <br>
+        <input type="email" class="input-long" id="emailInput" name="email" placeholder="Enter email" required>
+    </div>
+    <br> <br>
+
+    <div class="div-input">
+        <label class="label-input" for="amountInput">Amount:</label> <br> <br>
+        <input type="number" class="input-long" id="amountInput" name="amount" placeholder="Enter donation amount" min="5" max="10000" required>
+    </div>
+    <br> <br>
+
+    <div class="div-input">
+        <label class="label-input" for="commentInput">Comment:</label> <br> <br>
+        <textarea rows="5" cols="50" id="commentInput" name="comment" placeholder="Enter donation comment"></textarea>
+    </div>
+    <br> <br>
+
+    <div class="div-input">
+        <button type="submit">Donate</button>
+    </div>
+    </form>
+
+    <br>
+    <h1>Donation Index - Awesome Games Done Quick 2019</h1>
+    <h2 id="donationSummary"> Total (Count): $0 (0) - Max / Avg Donation: $0 (0)</h2>
+    <div id="tableDiv"></div>
+
+</center>
+
+<script src="agdq19_donate_form_1.js"></script>
+</body>
+</html>
