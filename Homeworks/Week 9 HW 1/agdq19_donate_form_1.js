@@ -53,25 +53,21 @@ const dataform = {};
 // The new row should be added to the bottom of the table
 // [Optional] - implement adding the row to the top of the table
 function addDonationRow(data){
-    // const table = document.getElementById("donationTable"); // DO NOT REMOVE: gets the donation table to populate
+    const table = document.getElementById("donationTable"); // DO NOT REMOVE: gets the donation table to populate
     
-    // construct a new row populated with the JSON data
-    // for {const property in data} {
-    //     console.log(${property} : ${data[property]}});
-    // }
-    // console.log(data)
+    console.log(data)
 
-    // const newRow = document.createElement("tr");
+    const newRow = document.createElement("tr");
 
-    // for (const property in data){
-    //     const newData = document.createElement("td");
-    //     newData.innerHTML = data[property];
-    //     newRow.appendChild(newData);
-    // }
+    for (const properties in data){
+        const formData = document.createElement("td");
+        formData.innerHTML = data[properties];
+        newRow.appendChild(formData);
+    }
 
-    // table.appendChild(newData);
+    table.appendChild(newRow);
 
-    // aggregate(data); // DO NOT REMOVE: aggregates data for the subheadings
+    aggregate(data); // DO NOT REMOVE: aggregates data for the subheadings
 }
 // ---------------- STOP --------------------
 // Do not make any edits in this section
