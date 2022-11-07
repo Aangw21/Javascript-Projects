@@ -1,0 +1,50 @@
+/* div{
+    border: 2px solid black;
+} */
+
+div.half-container{
+    width: 75%;
+    padding: 5px;
+    text-align: center;
+}
+
+div.half{
+    display: inline-block;
+    vertical-align: middle;
+    /* width: 50%; */
+    padding: 10px;
+}
+
+th{
+    text-align: left;
+    padding-right: 15px;
+}
+
+table{
+    border: 2px solid;
+    border-color: #243142;
+    border-collapse: collapse;
+}
+
+button{
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+thead{
+    background-color: #b7b7b7b7;
+}
+
+tr{
+    height: 2em;
+}
+
+td, th{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+tr:nth-child(even){
+    background-color: #b7b7b7b7;
+}

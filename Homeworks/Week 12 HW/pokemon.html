@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pokemon.css">
+    <title>Pokemon</title>
+</head>
+<body>
+<center>
+    <h1>Pokemon Simulator</h1>
+
+    <div class="half-container">
+        <div class="half">
+            <h3>Pokemon 1</h3>
+            <select name="pokemon1" class="pokemon1" id="pokemon1-select"></select><br>
+            <img class="pokemon1" id="pokemon1-img"><br>
+            <table class="pokemon1" id="pokemon1-stats"></table>
+        </div>
+
+        <div class="half">
+            <h3>Pokemon 2</h3>
+            <select name="pokemon2" class="pokemon2" id="pokemon2-select"></select><br>
+            <img class="pokemon2" id="pokemon2-img">
+            <table class="pokemon1" id="pokemon2-stats"></table>
+        </div>
+    </div>
+
+    <br>
+
+    <button id="battle-btn">Battle</button>
+    <button id="race-btn">Race</button>
+    <button id="fuse-btn">Fuse</button>
+
+    <h3 id="result-id"></h3>
+    <img id="fuse-img">
+    
+</center>
+
+<script src="pokemon.js"></script>
+</body>
+</html>
