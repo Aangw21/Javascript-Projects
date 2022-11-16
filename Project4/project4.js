@@ -29,6 +29,35 @@ async function fetchCat (){
     }
 }
 
+async function fetchDog (){
+    const url = "https://dog.ceo/api/breeds/image/random";
+
+    // fetch from API
+    const response = await fetch(url);
+    console.log(response);
+
+    // Check if our fetch was successful
+    if (response.ok == false){
+        console.log("Error");
+
+    }
+    else {
+        // converts the url into a json
+        const dataJson = await response.json();
+        console.log(dataJson);
+        // select a specific
+        // dataJSON is a list of dictionaries
+        const imgURL = dataJson["message"];
+        console.log(imgURL);
+        // 0:{id: 'Td7lHz0N0', url: 'https://cdn2.thecatapi.com/images/Td7lHz0N0.jpg
+        // const imgURL = dataJson[0].url;
+        document.querySelector("img").src = imgURL;
+        // selects the img file in the html and makes its equal to the dataJSON
+
+    }
+}
+
+
 async function fetchFact (){
     const url = "https://catfact.ninja/fact";
 
@@ -67,6 +96,10 @@ async function fetchFact (){
 
 // grab the .value
 function grabText(event){
+    const body = document.getElementById('count');
+    console.log(body.value);
+    let bodyValue = body.value;
+
     // keyup keydown
     // gets the textarea and grabs the value in it
     const getText = document.getElementById("write").value;
@@ -103,14 +136,27 @@ function grabText(event){
 
         // if a backspace is not detected
         //  do fectcat and fact
-        
-        fetchCat(); fetchFact();
 
 
-        startNum = state;
+            const petBody = document.getElementById('pets');
+            console.log(petBody.value);
+            let petbodyVal = petBody.value;
+            if (petbodyVal == "dog") {
+                fetchDog(); fetchFact();
+            }
+            else {
+                fetchCat(); fetchFact();
+            }
+            
+            
+
+
+
         // console.log(startNum);
         }
     }
+    startNum = state;
+
 
     // 2 compare with the state numner now if we were at 0, but the num we calculated is one we need to change (the number you have)
 
@@ -122,8 +168,7 @@ const selectElement = document.querySelector(".count");
 selectElement.addEventListener('change', (event) =>  {
     const body = document.getElementById('count');
     console.log(body.value);
-    bodyValue = body.value;
-    console.log(bodyValue)
+    let bodyValue = body.value;
     const grabP = document.getElementById('body');
     console.log(grabP.innerHTML = `Every ${bodyValue} words written will generate a new cute animal picture.`);
     
@@ -138,7 +183,12 @@ function init() {
 }
 
 init();
+// fetchDog();
 
 // https://cdn2.thecatapi.com/images/MTgyMjQyNQ.jpg"
 
 // grab the button and get an event listener for keyup
+
+
+
+// 
