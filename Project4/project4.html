@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="project4.css">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h2>Here is an image:</h2>
+        <img src="https://via.placeholder.com/450x210/dddddd/222222/?text=start%20typing%20to%20get%20cute%20animals!">
+       <br><p id ="body" for="write">Every 50 words written will generate a new cute animal picture</p></br>
+        <textarea id="write" name="write" rows="4" cols="50"></textarea>
+        <p id="currcount">Current word count: </p>
+    
+    
+        <label for="pets">New picture of</label>
+        <select id="pets" name="pets">
+            <!-- options for dog or cat -->
+        <option value="cat">Cat</option>
+        <option value="dog">Dog</option>
+        </select>
+    
+             <!-- options for word count -->
+        <label for="count">every</label>
+        <!-- select encompasses the drop down option -->
+        <select class="count" id="count" name="count">
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="150">150</option>
+        <option value="200">200</option>
+        </select>
+    </center>
+
+    <script src="project4.js"></script>
+</body>
+</html>
