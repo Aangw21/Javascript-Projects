@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandwich</title>
+</head>
+<body>
+<center>
+    <h1>Build a 3-Layer Sandwich</h1>
+    <h2>Type in your desired ingredients for a 3-layer sandwich</h2>
+    <span style="display:inline-block; width:50%; text-align:left">
+        <input type="text" name="breadInput" value="Bread type"> <br>
+        <button onclick="breadClick()">Add Bread</button> <button onclick="breadClear()">Clear Bread</button> <br>
+        <input type="text" name="fillingInput" value="Filling 1"> <br>
+        <input type="text" name="fillingInput" value="Filling 2"> <br>
+        <input type="text" name="fillingInput" value="Filling 3"> <br>
+        <button onclick="fillingClick()">Add Filling</button> <button onclick="clearFilling()">Clear Filling</button> <br>
+        <button onclick="eatClick()">Eat!</button>
+    </span>
+    <span style="display:inline-block; text-align:center">
+        <p class="bread" id="topBread"></p>
+        <p class="filling" id="filling1"></p>
+        <p class="filling" id="filling2"></p>
+        <p class="filling" id="filling3"></p>
+        <p class="bread" id="botBread"></p>
+    </span>
+
+</center>
+<script src="sandwich.js"></script>
+</body>
+</html>

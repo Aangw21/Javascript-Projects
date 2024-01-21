@@ -52,23 +52,82 @@ const dataform = {};
 //  - .appendChild() or .insertBefore() to add the newly created elements
 // The new row should be added to the bottom of the table
 // [Optional] - implement adding the row to the top of the table
+// function addDonationRow(data){
+//     const table = document.getElementById("donationTable"); // DO NOT REMOVE: gets the donation table to populate
+    
+//     console.log(data)
+
+//     const newRow = document.createElement("tr");
+
+//     for (const properties in data){
+//         const formData = document.createElement("td");
+//         formData.innerHTML = data[properties];
+//         newRow.appendChild(formData);
+//     }
+
+//     table.appendChild(newRow);
+
+//     aggregate(data); // DO NOT REMOVE: aggregates data for the subheadings
+// }
 function addDonationRow(data){
     const table = document.getElementById("donationTable"); // DO NOT REMOVE: gets the donation table to populate
     
-    console.log(data)
+    const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
-    const newRow = document.createElement("tr");
+    // construct a new row populated with the JSON data
 
-    for (const properties in data){
-        const formData = document.createElement("td");
-        formData.innerHTML = data[properties];
-        newRow.appendChild(formData);
+    // Should loop through and print each key value pair
+    for (const property in data){
+        console.log(`${property} : ${data[property]}`);
     }
 
+
+    // Creates a new DOM element in this case a <tr></tr> object
+    const newRow = document.createElement("tr");
+
+    // A For In loop that create a new DOM element in this case a <td></td> object and populate it with respective data from dictionary
+    for (const property in data){
+
+        // A variable that is assigned to the value of createElement --- which is a data cell
+        const newData = document.createElement("td");
+
+        // Assigning the innerHTML value to the value of the data cell with key in the data object
+
+        // If the key is "email" we want to assign the value to the time that the user submits the donation
+        if (property == "email"){
+
+            const currDate = new Date(); // Will return a long string of current Date
+            const fullYear = currDate.getFullYear();
+            const day = currDate.getDate();
+            const month = months[currDate.getMonth()];
+            const hour = currDate.getHours();
+            const min = currDate.getMinutes();
+            const sec = currDate.getSeconds();
+
+            newData.innerHTML = `${month} ${day}, ${fullYear}, ${hour}:${min}:${sec}`;
+            
+        }
+
+        // Otherwise if the key is "amount" we want to assign the value with actual dollar amount instead of the entered integer
+        else if (property == "amount") {
+            newData.innerHTML = `$${data[property]}.00`
+        }
+        // Lastly if none of the other conditions are met we will proceed with assigning each data cell with the value of from the user input fields
+        else {
+            newData.innerHTML = data[property];
+        }
+
+        
+
+        // Adding the new data to repsective row
+        newRow.appendChild(newData);
+    }
+
+    // Appending the new <tr> (Row with data in cells) element onto the page as new entry
     table.appendChild(newRow);
 
     aggregate(data); // DO NOT REMOVE: aggregates data for the subheadings
-}
+};
 // ---------------- STOP --------------------
 // Do not make any edits in this section
 // None of the functions will be useful to you

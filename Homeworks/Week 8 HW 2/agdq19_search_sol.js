@@ -1,116 +1,37 @@
-// TO DO:
-//      - filterAnonymous()
-//      - filterName()
-//      - filterAmount()
-//      - calculateTotal()
-//      - calcualteCount()
-//      - calculateMax()
-// 
-// For full marks, you must use .map(), .filter(), and .reduce() unless otherwise stated
-// If you use for loop or .forEach(), you will receive minimal marks
 
-// donations is an array of donation objects
-// filters for anonymous donations
-// [required] - must use .filter()
-// returns an array of donations
 function filterAnonymous(donations){
-    let name = donations.filter ( (anon) => {
-        nameFalse = anon["name"];
-        return nameFalse["hasName"] == false;
+    return donations.filter( (donation) =>{
+        return !donation["name"]["hasName"];
     });
-    return name;
-
 }
 
-// donations is an array of donation objects
-// name is a string
-// filters for donations with matching name
-// [required] - must use .filter()
-// returns an array of donations
 function filterName(donations, name){
-    // console.log(name);
-    // must capture user names
-    // filter check condition thr user is typing w json data
-    let names = donations.filter ( (anon) => {
-        // checking 
-        // 37 name is true only boolean variable 38 we're checking only if its a boolean not a string
-        nameObj = anon["name"];
-        nameTrue = nameObj["hasName"] == true;
-       return name == nameTrue;
-        // if (nameObj != name) {
-        //     return name;
-        // }
-        // nameTrue = nameObj["hasName"];
-        // console.log(nameObj);
-        // console.log(nameTrue);
-        // return nameTrue == name;
+    return donations.filter( (donation) =>{
+        return name == donation["name"]["name"];
     });
-    return names;
 }
 
-// donations is an array of donation objects
-// min and max are both numbers
-// filters for donations with donation amounts ranged between min and max (inclusive)
-// [required] - must use .filter()
-// returns an array of donations
 function filterAmount(donations, min, max){
-    console.log('apple');
-    const donateArray = donations.filter( (donate) => {
-        const amount = parseFloat(donate["amount"])
-        return (min <= amount) && (amount <= max);
-    })
-    return donateArray;
+    return donations.filter( (donation) =>{
+        return (min <= Number(donation["amount"])) && (Number(donation["amount"]) <= max);
+    });
 }
 
-// donations is an array of donation objects
-// calculates the total sum of donations
-// [required] - must use .map(), .reduce(), or both
-// returns an integer sum
 function calculateTotal(donations){
-    const donationSum = donations.reduce( (accumulator, donation) => {
-        // anonymous function takes two arguments
-        //   1) accumulator that is passed along to collect everything
-        //   2) the iterator (student)
-
-        // calculate the accumulation and return it
-           return accumulator + parseFloat(donation["amount"]);
-        // console.log(donation["amount"]);
-        // return []
-    }, 0); // [IMPORTANT] - specify the initial value of the accumulator
-    return donationSum;
+    return donations.reduce( (sum, donation) => {
+        return sum + Number(donation["amount"]);
+    }, 0).toFixed(2);
 }
 
-// donations is an array of donation objects
-// calculates the total number of donations in the array
-// [optional] - .reduce() is optional here; try it for a challenge
-// returns an integer count
 function calculateCount(donations){
-    // const totalDon = donations.reduce((sum, donate) => {
-    //     return sum + 
-    // })
-    // count = 0
-    // donationAmount = donations["amount"];
-    // donationAmount.foreach(amount => {
-    //     if (amount) {
-    //         count += 1
-    //     }
-    // }
-
-    // )
-    // donationAmount = donations["amount"]
-    // for (let i = 0; i <  donations.length; i++) {
-    //     length = donations.length
-    //   }
-    length = donations.length
-    return length;
+    return donations.length;
 }
 
-// donations is an array of donation objects
-// finds the largest donation amount within the array of donations
-// [optional] - .map() and .reduce() are optional, but highly recommended
-// returns an float
 function calculateMax(donations){
-    return '217226.12';
+    return donations.reduce( (max, donation) => {
+        if (max > Number(donation["amount"])) return max;
+        else return Number(donation["amount"]);
+    }, 0);
 }
 
 // ---------------- STOP --------------------

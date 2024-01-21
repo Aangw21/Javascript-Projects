@@ -1,3 +1,6 @@
+// dataJSON is an object
+// use dataJSON to construct the webpage's <h1>
+// returns the string to be used for the heading
 function getHeading(dataJSON){
     const name = dataJSON.name;
     const year = String(dataJSON.year);

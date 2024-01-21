@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form id="exampleForm">
+        <label for="fName">First Name: </label>
+        <input type="text" name="firstName" id="fName" placeholder="John" required> <br> <br>
+
+        <label for="lName">Last Name: </label>
+        <input type="text" name="lastName" id="lName" placeholder="Johnson" required> <br> <br>
+
+        <label for="credits">Credits: </label>
+        <input type="number" name="credits" id="credits" placeholder="0 - 120" min="0" max="120" required> <br> <br>
+
+        <label for="gpa">GPA:</label>
+        <input type="number" name="gpa" id="gpa" step="0.01" placeholder="0.00 - 4.00" min="0" max="4" required> <br> <br>
+
+        <!-- some indication to see if the student is an active student or not -->
+        <label for="isActive">Currently active student?</label>
+        <input type="checkbox" name="isActive" id="isActive"> <br> <br>
+
+        <!-- indicate which campus the student is at -->
+        <!-- Bloomington, kokomo, east, southeast, northwest, south bend -->
+        <label>Campus:</label>
+        <input type="radio" name="campus" id="campus-bloomington" value="bloomington" checked>
+        <label for="campus-bloomington">Bloomington</label>
+
+        <input type="radio" name="campus" id="campus-kokomo" value="kokomo">
+        <label for="campus-kokomo">Kokomo</label>
+
+        <input type="radio" name="campus" id="campus-east" value="east">
+        <label for="campus-east">East</label>
+
+        <input type="radio" name="campus" id="campus-southeast" value="southeast">
+        <label for="campus-southeast">Southeast</label>
+
+        <input type="radio" name="campus" id="campus-northwest" value="northwest">
+        <label for="campus-northwest">Northwest</label>
+
+        <input type="radio" name="campus" id="campus-southBend" value="southBend">
+        <label for="campus-southBend">South Bend</label>
+
+        <br> <br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+</body>
+</html>

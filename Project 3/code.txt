@@ -1,5 +1,74 @@
-// Global Variable
-const globalData = [];
+email: "aangw21@gmail.com"
+firstName: "Aung"
+highschool: "Bloomington North"
+isUnderEighteen: "on"
+lastName: "Win"
+schoolGrade: "9th"
+session1-slot1: "Geometry"
+session1-slot2: "None"
+session1-slot3: "None"
+session1-slot4
+: 
+"None"
+session2-slot1
+: 
+"Algebra I"
+session2-slot2
+: 
+"None"
+session2-slot3
+: 
+"None"
+session2-slot4
+: 
+"None"
+[[Prototype]]
+: 
+Object
+
+email: "aangw21@gmail.com"
+firstName: "Aung"
+grade: undefined
+highschool: "Bloomington North"
+lastName: "Win"
+session1: ['Geometry']
+session2`: []
+timestamp: undefined
+under18: true
+
+    // const getCourses = globalData.filter( (student) => {
+        // const allCourses = []
+        //  for (let i = 0; i < students["session1"].length; i++) {
+            // 
+
+        }
+        // })
+
+        // if (dataJSON["session2-slot1"] != "None"){
+        //     student["session2"].push(dataJSON["session2-slot1"]);
+
+
+
+
+    // right now we dont need the filter function? we need to loop through both sessions?
+        // const getCourses = globalData.filter( (students) => {
+        // const allCourses = [];
+        // for (let i = 0; i < students["session1"].length; i++) {
+        // // console.log(students["session1"][i])
+        //          allCourses.push(students["session1"][i])
+
+        // }
+         });
+        //  console.log(allCourses)
+        //  console.log(getCourses)
+        
+
+        // const getCourses = globalData.filter( (students) => {
+        // const allCourses = []
+        // return constgrabInputs = allCourses.concat(students["session1"], students["session2"] );
+        // loop through both sessions then push it to an empty array called allsession 
+    
+
 
 // my variables
 const other_Radio = document.getElementById("other-radio");
@@ -36,11 +105,14 @@ other_Radio.addEventListener("click", () => {
 
 
 north_Radio.addEventListener("click", () => {
-     // Reenable the disabled attribute of the high school input field
+
+    // Reenable the disabled attribute of the high school input field
     document.getElementById("highschool-input").disabled = true;
+
     // Set the PLACEHOLDER value to an empty string to reset any user entered value
     inputField.placeholder = "";
-     // Set the VALUE to an empty string
+
+    // Set the VALUE to an empty string
     document.getElementById("highschool-input").value = "";
 
 });
@@ -50,9 +122,197 @@ na_Radio.addEventListener("click", () => {
 
     // Reenable the disabled attribute of the high school input field
     document.getElementById("highschool-input").disabled = true;
-    // Set the placeholder value to an empty string to reset any entered value
+
+    // Set the PLACEHOLDER value to an empty string to reset any user entered value
     inputField.placeholder = "";
-    // Set the value to an empty string
+
+    // Set the VALUE to an empty string
+    document.getElementById("highschool-input").value = "";
+
+});
+
+
+function searchJSON(){
+
+
+    // access the search button 
+    const grabButton = document.getElementById("search-button").addEventListener("click", () => {
+        const grabInput = document.getElementById("search-input").value;
+        console.log(grabInput);
+        // const grabTable = document.getElementById("registrar-table");
+        // for (let i = 0; i < globalData.length; i++) {
+                //  const grades = globalData[i]["grade"];
+        //          console.log(grades);
+        const getGrades = globalData.filter( (students) => {
+            return grabInput == students["grade"];
+            // compare the search to the data
+        });
+
+        // right now we dont need the filter function? we need to loop through both
+        const getCourses = globalData.filter( (students) => {
+        const allCourses = [];
+        for (let i = 0; i < students["session1"].length; i++) {
+        // console.log(students["session1"][i])
+                 allCourses.push(students["session1"][i])
+
+        }
+         });
+         console.log(allCourses)
+         console.log(getCourses)
+        
+
+        // const getCourses = globalData.filter( (students) => {
+        // const allCourses = []
+        // return constgrabInputs = allCourses.concat(students["session1"], students["session2"] );
+        // loop through both sessions then push it to an empty array called allsession 
+    
+        
+        console.log(getGrades);
+        // removes elements from table
+        const grabTable = document.getElementById("registrar-body");
+        while (grabTable.firstChild) {
+            grabTable.removeChild(grabTable.firstChild);
+        }
+        // grab the table
+        // remove the table
+        // populate the table 
+        for (let i = 0; i <  getGrades.length; i++) {
+            const name = getGrades[i]["firstName"] + " " + getGrades[i]["lastName"];
+            const email = getGrades[i]["email"];
+            const under18 =  getGrades[i]["under18"];
+            const regTime =  getGrades[i]["timestamp"];
+            const grade =  getGrades[i]["grade"];
+            const highschool=  getGrades[i]["highschool"];
+            const session1 =  getGrades[i]["session1"];
+            const session2 =  getGrades[i]["session2"];
+    
+            console.log( getGrades[i]["email"])
+            const newRow = document.createElement("tr");
+            const regBody = document.getElementById("registrar-body");
+            regBody.appendChild(newRow);
+    
+            // create the td for name
+            const newTD = document.createElement("td");
+            newTD.innerHTML = name;
+            newRow.appendChild(newTD);
+    
+            // create the td for age
+            const new18 = document.createElement("td");
+            new18.innerHTML = under18;
+            newRow.appendChild(new18);
+    
+    
+            // create the td for email
+            const newEmail = document.createElement("td");
+            newEmail.innerHTML = email;
+            newRow.appendChild(newEmail);
+    
+            // change .innerHTML
+            // append to tr
+    
+             // create the td for reg time
+             const newRegTime = document.createElement("td");
+             newRegTime.innerHTML = regTime;
+             newRow.appendChild(newRegTime);
+    
+            // create the td for grade
+            const newGrade = document.createElement("td");
+            newGrade.innerHTML = grade;
+            newRow.appendChild(newGrade);
+    
+            // create the td for hs
+            const newHS = document.createElement("td");
+            newHS.innerHTML = highschool;
+            newRow.appendChild(newHS);
+    
+            // create the td for hs
+            const newSec1 = document.createElement("td");
+            newSec1.innerHTML = session1;
+            newRow.appendChild(newSec1);
+    
+            // create the td for hs
+            const newSec2 = document.createElement("td");
+            newSec2.innerHTML = session2;
+            newRow.appendChild(newSec2);
+    
+     
+        }
+ 
+
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+My Current Code
+
+// my variables
+const other_Radio = document.getElementById("other-radio");
+const south_Radio = document.getElementById("south-radio");
+const north_Radio = document.getElementById("north-radio");
+const na_Radio = document.getElementById("na-radio");
+
+const inputField = document.getElementById("highschool-input");
+
+south_Radio.addEventListener("click", () => {
+
+    // Reenable the disabled attribute of the high school input field
+    document.getElementById("highschool-input").disabled = true;
+
+    // Set the PLACEHOLDER value to an empty string to reset any user entered value
+    inputField.placeholder = "";
+
+    // Set the VALUE to an empty string
+    document.getElementById("highschool-input").value = "";
+
+});
+// Creates an eventlistener when other option is clicked on 
+other_Radio.addEventListener("click", () => {
+    // A conditional statement to check what the value of text input for the "other" option is IF there is a disabled value then enter the condition and execute following statements
+    if(inputField.disabled){
+        console.log("The input field is disabled!");
+        // Turns on the input field for the other option
+        document.getElementById("highschool-input").disabled = false;
+        // Adds a place holder
+        inputField.placeholder = "Enter high school name";
+
+    }
+})
+
+
+north_Radio.addEventListener("click", () => {
+
+    // Reenable the disabled attribute of the high school input field
+    document.getElementById("highschool-input").disabled = true;
+
+    // Set the PLACEHOLDER value to an empty string to reset any user entered value
+    inputField.placeholder = "";
+
+    // Set the VALUE to an empty string
+    document.getElementById("highschool-input").value = "";
+
+});
+
+
+na_Radio.addEventListener("click", () => {
+
+    // Reenable the disabled attribute of the high school input field
+    document.getElementById("highschool-input").disabled = true;
+
+    // Set the PLACEHOLDER value to an empty string to reset any user entered value
+    inputField.placeholder = "";
+
+    // Set the VALUE to an empty string
     document.getElementById("highschool-input").value = "";
 
 });
@@ -151,10 +411,10 @@ function submitJSON() {
         student["lastName"] = dataJSON["lastName"];
         student["email"] = dataJSON["email"];
         student["timestamp"] = dataJSON["timestamp"];
-        student["grade"] = dataJSON["schoolGrade"];
+        student["grade"] = dataJSON["grade"];
         student["highschool"] = dataJSON["highschool"];
         student["session1"] = [];
-        student["session2"] = [];
+        student["session2`"] = [];
 
         if (dataJSON["isUnderEighteen"]){
             student["under18"] = true;
@@ -223,7 +483,6 @@ function submitJSON() {
    
     });
 }
-
 
 function searchJSON(){
 
@@ -342,7 +601,8 @@ function searchJSON(){
 
 
 
-
+// Global Variable
+const globalData = [];
 
 
 // read json file
@@ -374,19 +634,46 @@ function loadJSON(fileName){
     xobj.send();
 }
 
-function entryTable(dataJSON){
 
+// append dataJSON dict to Global
+// loop through to dataJSON first to access each individual object
+
+// page load
+
+function loopJSON(fileName){
+    loadJSON('proj3.json');
     console.log(dataJSON);
+
+}
+
+function init(){
+    loadJSON('proj3.json');
+    // print to see if we made our JSON object correctly
+    submitJSON();
+    // loopJSON('proj3.json');
+    searchJSON();
+
+}
+
+
+init()
+
+// prepare json file when you submit form 
+
+
+NEW CODE ENTRY TABLE
+function entryTable(){
+
+    console.log(globalData);
 
     student = {};
 
 
-    if (dataJSON.length > 0){
+    if (globalData.length > 0){
 
-        console.log("This is wokring!");
 
         // A for loop that will iterate over the array of objects and access the key:value pairs to create student entries
-        for (let i = 0; i < dataJSON.length; i++){
+        for (let i = 0; i < globalData.length; i++){
 
             // Getting access to the DOM element with the id called registrar-body which is a <tbody> tag
             const table = document.getElementById("registrar-body");
@@ -407,9 +694,9 @@ function entryTable(dataJSON){
             // Assigning values to each variable to populate into each respective data cell //
             // ---------------------------------------------------------------------------- //
 
-            Name.innerHTML = dataJSON[i]["lastName"] + ", " + dataJSON[i]["firstName"];
+            Name.innerHTML = globalData[i]["lastName"] + ", " + globalData[i]["firstName"];
 
-            if(dataJSON[i]["under18"] == true){
+            if(globalData[i]["under18"] == true){
                 // console.log("yes this works!");
                 under18.innerHTML = "Yes";
             }
@@ -417,17 +704,17 @@ function entryTable(dataJSON){
                 under18.innerHTML = "No";
             }
 
-            userEmail.innerHTML = dataJSON[i]["email"];
+            userEmail.innerHTML = globalData[i]["email"];
 
-            regTime.innerHTML = dataJSON[i]["timestamp"];
+            regTime.innerHTML = globalData[i]["timestamp"];
 
-            userGrade.innerHTML = dataJSON[i]["grade"];
+            userGrade.innerHTML = globalData[i]["grade"];
 
-            highSchool.innerHTML = dataJSON[i]["highschool"];
+            highSchool.innerHTML = globalData[i]["highschool"];
 
-            firstSession.innerHTML = dataJSON[i]["session1"];
+            firstSession.innerHTML = globalData[i]["session1"];
 
-            secondSession.innerHTML = dataJSON[i]["session2"];
+            secondSession.innerHTML = globalData[i]["session2"];
            
            
             // Next we would like to append the variables to the row to represent student entries //
@@ -448,7 +735,7 @@ function entryTable(dataJSON){
     }
 
     else{
-        console.log("This is not an array");
+        console.log("Error");
 
 
         const table = document.getElementById("registrar-body");
@@ -465,10 +752,10 @@ function entryTable(dataJSON){
         const min = now.getMinutes();
         const sec = now.getSeconds();
 
-        student["firstName"] = dataJSON["firstName"];
-        student["lastName"] = dataJSON["lastName"];
+        student["firstName"] = globalData["firstName"];
+        student["lastName"] = globalData["lastName"];
 
-        if(dataJSON["isUnderEighteen"] == "on"){
+        if(globalData["isUnderEighteen"] == "on"){
             // console.log("The value of this is on so we must set to true");
             student["under18"] = "Yes";
         }
@@ -477,14 +764,14 @@ function entryTable(dataJSON){
             student["under18"] = "No";
         }
        
-        student["email"] = dataJSON["email"];
+        student["email"] = globalData["email"];
 
         // Will create a new key:value pair (Key is called "date" and the Value is assigned to a string from the values of the Date())
         student["timestamp"] = `${year}-${month}-${date}  ${hour}:${min}:${sec}`;
 
-        student["grade"] = dataJSON["schoolGrade"];
+        student["grade"] = globalData["schoolGrade"];
 
-        student["highschool"] = dataJSON["highschool"];
+        student["highschool"] = globalData["highschool"];
 
         student["session1"] = [];
 
@@ -492,20 +779,20 @@ function entryTable(dataJSON){
 
        
         // Conditions to check whether or not the value from the slots of section 1 are not set to None otherwise proceed to append the values from each selected
-        if (dataJSON["session1-slot1"] != "None"){
-            student["session1"].push(dataJSON["session1-slot1"]);   
+        if (globalData["session1-slot1"] != "None"){
+            student["session1"].push(globalData["session1-slot1"]);   
         };
 
-        if (dataJSON["session1-slot2"] != "None"){
-            student["session1"].push(dataJSON["session1-slot2"]);   
+        if (globalData["session1-slot2"] != "None"){
+            student["session1"].push(globalData["session1-slot2"]);   
         };
 
-        if (dataJSON["session1-slot3"] != "None"){
-            student["session1"].push(dataJSON["session1-slot3"]);   
+        if (globalData["session1-slot3"] != "None"){
+            student["session1"].push(globalData["session1-slot3"]);   
         };
 
-        if (dataJSON["session1-slot4"] != "None"){
-            student["session1"].push(dataJSON["session1-slot4"]);   
+        if (globalData["session1-slot4"] != "None"){
+            student["session1"].push(globalData["session1-slot4"]);   
         };
 
 
@@ -548,28 +835,3 @@ function entryTable(dataJSON){
     }
    
 }
-// append dataJSON dict to Global
-// loop through to dataJSON first to access each individual object
-
-// page load
-
-function loopJSON(fileName){
-    loadJSON('proj3.json');
-    console.log(dataJSON);
-
-}
-
-function init(){
-    loadJSON('proj3.json');
-    // print to see if we made our JSON object correctly
-    submitJSON();
-    // loopJSON('proj3.json');
-    searchJSON();
-
-    entryTable();
-}
-
-
-init()
-
-// prepare json file when you submit form 

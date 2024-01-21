@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tournament.css">
+    <title>Tournament</title>
+</head>
+<body>
+<center>
+<h1>Tournament Bracket Exercise</h1>
+<table>
+    <tr>
+        <td class="tournaTd"><input type="text" class="tier1"></td>
+        <td class="tournaTd"><input type="text" class="tier1"></td>
+        <td class="tournaTd"><input type="text" class="tier1"></td>
+        <td class="tournaTd"><input type="text" class="tier1"></td>
+        <td class="tournaTd"><input type="text" class="tier1"></td>
+        <td class="tournaTd"><input type="text" class="tier1"></td>
+        <td class="tournaTd"><input type="text" class="tier1"></td>
+        <td class="tournaTd"><input type="text" class="tier1"></td>
+    </tr>
+    <tr>
+        <td class="tournaTd"></td>
+        <td class="tournaTd"><input type="text" class="tier2" disabled></td>
+        <td class="tournaTd"><input type="text" class="tier2" disabled></td>
+        <td class="tournaTd"></td>
+        <td class="tournaTd"></td>
+        <td class="tournaTd"><input type="text" class="tier2" disabled></td>
+        <td class="tournaTd"><input type="text" class="tier2" disabled></td>
+        <td class="tournaTd"></td>
+    </tr>
+    <tr>
+        <td class="tournaTd"></td>
+        <td class="tournaTd"></td>
+        <td class="tournaTd"></td>
+        <td class="tournaTd"><input type="text" class="tier3" disabled></td>
+        <td class="tournaTd"><input type="text" class="tier3" disabled></td>
+        <td class="tournaTd"></td>
+        <td class="tournaTd"></td>
+        <td class="tournaTd"></td>
+    </tr>
+    <tr>
+        <td class="tournaTd"></td>
+        <td class="tournaTd"></td>
+        <td class="tournaTd"></td>
+        <td class="tournaTd" colspan="2"><input type="text" class="tier4" disabled></td>
+        <td class="tournaTd"></td>
+        <td class="tournaTd"></td>
+        <td class="tournaTd"></td>
+    </tr>
+</table>
+<button type="Button" onclick=competeClick()>Compete!</button> <button type="Button" onclick=clearClick()>Clear</button> 
+
+
+</center>
+
+<script src="tournament.js"></script>
+</body>
+</html>

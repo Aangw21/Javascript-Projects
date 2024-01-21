@@ -3,7 +3,7 @@ function randBool() {
     return Math.floor(Math.random()*100 + 1);
 }
 
-const counterBtn = document.getElementsByTagName("button");
+// const counterBtn = document.getElementsByTagName("button");
 
 
 counterBtn[0].addEventListener("click",()=>{
@@ -12,8 +12,18 @@ updateText();
 });
 
 function updateText(){
+    // const grabParagraphs = document.getElementsByTagName("p");
+    // grabParagraphs[0].innerHTML("You guessed" + guesses)
+    // grabParagraphs[1].innerHTML("You guessed" + guesses)
+    // grabParagraphs[2].innerHTML("You guessed" + guesses)
+
+
+    const grabGuess = document.getElementById("input_guess");
+    const guess = grabGuess.value;
     const grabFeedback3 = document.getElementById("feedback3");
     grabFeedback3.textContent = "Number of guesses: " + guesses;
+    const grabFeedback2 = document.getElementById("feedback2");
+    grabFeedback2.textContent = "Your guess is: " + guess
 }
 
 // function updateText(){
@@ -61,40 +71,48 @@ function gb() {
     const grabGuess = document.getElementById("input_guess");
     const guess = grabGuess.value;
     console.log(guess);
-    if (guess == randomNumber){
-        console.log("as");
-        // grab the p tag 
-        const grabFeedback = document.getElementById("feedback");
-         grabFeedback.textContent = "You won";
-        //  found on Youtube
-    }
-    else if(guess >= randomNumber) {
-        const grabFeedback = document.getElementById("feedback");
-        grabFeedback.textContent = "Too high";
-        console.log("too high")
-    }
-    // else if (){
-
+    // check = isNaN(guess);
+    // if (guess == null) {
+    //     const grabFeedback = document.getElementById("feedback");
+    //     grabFeedback.textContent = "Please enter an integer";
+    //     const grabFeedback1 = document.getElementById("feedback1");
+    //     grabFeedback1.textContent = "Please guess again"
     // }
-    else {
-        const grabFeedback = document.getElementById("feedback");
-        grabFeedback.textContent = "Too small";
-        console.log("too small")
-    }
+    // else{
+        if (guess == randomNumber){
+            console.log("as");
+            // grab the p tag 
+            const grabFeedback = document.getElementById("feedback");
+            grabFeedback.textContent = "You won";
+            document.getElementById("guess_button").disabled = true;
+            //  found on Youtube
+        }
+        else if(guess >= randomNumber) {
+            const grabFeedback = document.getElementById("feedback");
+            grabFeedback.textContent = "Too high";
+            console.log("too high")
+        }
+        else  {
+            const grabFeedback = document.getElementById("feedback");
+            grabFeedback.textContent = "Too small";
+            console.log("too small")
+        }
+  
+ }
 
-}
+
 
 
 function rb(){
     const reset = document.getElementsByName("Input");
-    const para = document.getElementsByTagName("p");
-
     reset[0].value = "Make a guess";
 
-    para[0].innerHTML = "Good luck have fun!";    
-    para[1].innerHTML = "Awaiting guess...";
-    para[2].innerHTML = "Number of guesses: 0";
-
+    const grabParagraphs = document.getElementsByTagName("p");
+    grabParagraphs[1].textContent = "Good luck have fun!";
+    grabParagraphs[2].textContent = "Awaiting guess...";
+    grabParagraphs[3].textContent = "Number of guesses: 0";
+    document.getElementById("guess_button").disabled = false;
+    guesses = 0
 }
 
 // check if guess is correct randbool can not be compared 
@@ -129,3 +147,4 @@ console.log(randomNumber)
 
     
 
+// num150 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,]
